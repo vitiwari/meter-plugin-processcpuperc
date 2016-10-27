@@ -5,6 +5,11 @@
           "source" : "localhost",
           "processArgs" : ".*meter",
           "reconcile":"first"
+    },
+    {		
+          "source" : "localhost",
+          "processArgs" : ".*ava",
+          "reconcile":"first"
     }
   ]
 }

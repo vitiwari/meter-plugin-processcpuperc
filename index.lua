@@ -58,24 +58,25 @@ end
 
 local POLL_INTERVAL = 1000;
 
-
+local poll=function ()
+  for key,process  in pairs(options) do
+    print("-->"..json.stringify(process))
+    jsonRpcCall(process)
+  end
+end
 
 -- Define our function that "samples" our measurement value
-local poll=function ()
+local jsonRpcCall=function (process)
   local callback = function()
     --print("callback called")
   end
   local socket = net.createConnection(9192, '127.0.0.1', callback)
-  for key,process  in pairs(options) do
-    print("-->"..json.stringify(process))
-    socket:write(getProcessData(process))
-  end
-  
+  socket:write(getProcessData(process))
   socket:once('data',function(data)
       local sucess,  parsed = parseJson(data)
 
-      --print(json.stringify(parsed));
-      local result = {}
+      print(json.stringify(parsed));
+      --local result = {}
       if(parsed.result.processes==nil)then
         --print No process
       else
