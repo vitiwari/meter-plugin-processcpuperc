@@ -74,7 +74,7 @@ local jsonRpcCall=function (process)
       else
         for K,V  in pairs(parsed.result.processes) do
           local per = V["cpuPct"]/100
-          local name ="[".. process.source.."]_("..V["name"]..")"
+          local name = process.source.."_"..V["name"]
           local timestamp=os.time()
           print(string.format("%s %s %s %s", 'TRUESIGHT_METER_PROCESSCPU', per,name, timestamp))
         end
