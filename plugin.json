@@ -1,0 +1,47 @@
+{
+  "description": "Meter Plugin for process cpu",
+  "command": "boundary-meter index.lua",
+  "icon": "icon.png",
+  "metrics": [
+    "TRUESIGHT_METER_PROCESSCPU"
+  ],
+  "paramArray" : { "itemTitle" : ["source"], "schemaTitle" : "Process"},
+  "paramSchema" : [
+		{
+			"title" : "Source",
+			"name" : "source",
+			"description" : "The source to display in the legend for the CPU data.",
+			"type" : "string"  
+		},
+		{
+			"title" : "Process Name Regex",
+			"name" : "processName",
+			"description" : "A regular expression to match the name of the process.",
+			"type" : "string"
+		},
+		{
+			"title" : "Process Path Regex",
+			"name" : "processPath",
+			"description" : "A regular expression to match the full path of the process.",
+			"type" : "string"
+		},
+		{
+			"title" : "Process CWD Regex",
+			"name" : "processCwd",
+			"description" : "A regular expression to match the current working directory of the process.",
+			"type" : "string"
+		},
+    {
+			"title" : "Poll Interval",
+			"name" : "pollInterval",
+			"description" : "Value in milisecond (Enter 1000 for 1sec).",
+			"type" : "number"
+		},
+		{
+			"title" : "Reconcile option",
+			"name" : "reconcile",
+			"description" : "How to reconcile in the case that multiple processes match.  Set to First Match to use the first matching process, Parent to choose the parent process (useful if process is forked), or Longest Running to pick the process that has been running the longest.",
+			"type" : { "enum" : [["None", "none"], ["First Match", "first"], ["Parent", "parent"], ["Longest Running", "uptime"]]}
+		}
+  ]
+}
