@@ -2,7 +2,7 @@
 	"description" : "Displays CPU use for a multiple process",      
 	"command" : "boundary-meter init.lua",
 	"command_lua" : "boundary-meter init.lua",
-	"metrics" : ["PROCESS_CPU_PERCENTAGE"],
+	"metrics" : ["METER_PROCESS_CPU_PERC"],
 	"paramArray": {
         "itemTitle": [
           "source"
@@ -33,6 +33,12 @@
 			"name" : "processCwd",
 			"description" : "A regular expression to match the current working directory of the process.",
 			"type" : "string"
+		},
+    {
+			"title" : "Poll Interval",
+			"name" : "pollInterval",
+			"description" : "A number in milisecond to define the poll interval.",
+			"type" : "number"
 		},
 		{
 			"title" : "Reconcile option",

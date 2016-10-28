@@ -1,5 +1,5 @@
 {
-  "PROCESS_CPU_PERCENTAGE": {
+  "METER_PROCESS_CPU_PERC": {
     "defaultAggregate": "AVG",
     "defaultResolutionMS": 1000,
     "description": "Process specific CPU utilization",
