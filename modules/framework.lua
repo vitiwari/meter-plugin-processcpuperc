@@ -1861,19 +1861,12 @@ function ProcessCpuDataSource:getProcessCpuData(port,host,params,parse)
   socket:once('data',function(data)
   local sucess,  parsed = parseJson(data)
   local result = {}
-  --local i=0
-  if(parsed.result.processes~=nil)then
+   if(parsed.result.processes~=nil)then
     for K,V  in pairs(parsed.result.processes) do
       local resultitem={}
       resultitem['metric']='METER_PROCESS_CPU_PERC'
-      for ki,vi in pairs(V) do
-            if ki=='cpuPct' then
-              resultitem['val']= vi/100
-            end
-            if ki=='name' then
-              resultitem['source']= vi
-            end
-      end
+      resultitem['val']= V["cpuPct"]/100
+      resultitem['source']= V["name"]..V["pid"]
       local timestamp = os.time()
       resultitem['timestamp']=timestamp
       table.insert(result,resultitem)
