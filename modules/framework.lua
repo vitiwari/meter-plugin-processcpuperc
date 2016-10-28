@@ -1864,7 +1864,7 @@ function ProcessCpuDataSource:getProcessCpuData(port,host,params,parse)
   --local i=0
   for K,V  in pairs(parsed.result.processes) do
     local resultitem={}
-    resultitem['metric']='PROCESS_CPU_PERCENTAGE'
+    resultitem['metric']='METER_PROCESS_CPU_PERC'
     for ki,vi in pairs(V) do
             if ki=='cpuPct' then
               resultitem['val']= vi/100
