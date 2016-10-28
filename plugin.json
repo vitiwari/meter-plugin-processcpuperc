@@ -1,12 +1,15 @@
 {
-  "description": "Meter Plugin for process cpu",
-  "command": "boundary-meter index.lua",
-  "icon": "icon.png",
-  "metrics": [
-    "TRUESIGHT_METER_PROCESSCPU"
-  ],
-  "paramArray" : { "itemTitle" : ["source"], "schemaTitle" : "Process"},
-  "paramSchema" : [
+	"description" : "Displays CPU use for a multiple process",      
+	"command" : "boundary-meter init.lua",
+	"command_lua" : "boundary-meter init.lua",
+	"metrics" : ["PROCESS_CPU_PERCENTAGE"],
+	"paramArray": {
+        "itemTitle": [
+          "source"
+        ],
+        "schemaTitle": "Instance"
+     },
+	"paramSchema" : [
 		{
 			"title" : "Source",
 			"name" : "source",
@@ -31,17 +34,11 @@
 			"description" : "A regular expression to match the current working directory of the process.",
 			"type" : "string"
 		},
-    {
-			"title" : "Poll Interval",
-			"name" : "pollInterval",
-			"description" : "Value in milisecond (Enter 1000 for 1sec).",
-			"type" : "number"
-		},
 		{
 			"title" : "Reconcile option",
 			"name" : "reconcile",
 			"description" : "How to reconcile in the case that multiple processes match.  Set to First Match to use the first matching process, Parent to choose the parent process (useful if process is forked), or Longest Running to pick the process that has been running the longest.",
 			"type" : { "enum" : [["None", "none"], ["First Match", "first"], ["Parent", "parent"], ["Longest Running", "uptime"]]}
 		}
-  ]
+	]
 }

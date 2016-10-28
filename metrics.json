@@ -1,11 +1,10 @@
 {
-    "TRUESIGHT_METER_PROCESSCPU": {
-        "defaultAggregate": "avg",
-        "defaultResolutionMS": 1000,
-        "description": "Metric for the Process CPU meter lua plugin",
-        "displayName": "Truesight ProcessCPU",
-        "displayNameShort": "Truesight ProcessCPU",
-        "isDisabled": 0,
-        "unit": "percent"
-    }
+  "PROCESS_CPU_PERCENTAGE": {
+    "defaultAggregate": "AVG",
+    "defaultResolutionMS": 1000,
+    "description": "Process specific CPU utilization",
+    "displayName": "CPU Process",
+    "displayNameShort": "CPU Process",
+    "unit": "percent"
+  }
 }

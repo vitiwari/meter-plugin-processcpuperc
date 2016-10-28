@@ -1,15 +1,11 @@
 {
 	"items" :
 	[
-    {		
-          "source" : "localhost",
-          "processArgs" : ".*meter",
-          "reconcile":"first"
-    },
-    {		
-          "source" : "localhost",
-          "processArgs" : ".*ava",
-          "reconcile":"first"
-    }
-  ]
+		{
+			"source" : "localhost",
+			"processName" : ".*meter",
+      "reconcile":"first"
+		}
+	]
+  "pollInterval" : 1000
 }
