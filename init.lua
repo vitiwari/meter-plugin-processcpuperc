@@ -36,7 +36,7 @@ local createPollers=function(params)
 
         for _, item in pairs(params.items) do
                 local cs = createStats(item)
-                local statsPoller = DataSourcePoller:new(item.pollInterval, cs)
+                local statsPoller = DataSourcePoller:new(tonumber(item.pollInterval), cs)
                 polers:add(statsPoller)
         end
         return polers
