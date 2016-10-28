@@ -20,7 +20,7 @@ local createOptions=function(item)
    options.cwd_expr = item.processCwd or ''
    options.args_expr = item.processArgs or ''
    options.reconcile = item.reconcile or ''
-   options.pollInterval = notEmpty(item.pollInterval,1000)
+   options.pollInterval = notEmpty(tonumber(item.pollInterval),1000)
 
    return options
 end
