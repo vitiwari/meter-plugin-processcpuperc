@@ -12,34 +12,34 @@ local notEmpty = framework.string.notEmpty
 --Getting the parameters from params.json.
 local params = framework.params
 
-local function createOptions(item)
-  
-	local options = {}
-	options.process = item.processName or ''
+local createOptions=function(item)
+
+   local options = {}
+   options.process = item.processName or ''
    options.path_expr = item.processPath or ''
    options.cwd_expr = item.processCwd or ''
    options.args_expr = item.processArgs or ''
    options.reconcile = item.reconcile or ''
    options.pollInterval = notEmpty(item.pollInterval,1000)
 
-	return options
+   return options
 end
 
-local function createStats(item)
+local createStats = function(item)
 
     local options = createOptions(item)
     return ProcessCpuDataSource:new(options)
 end
 
-local function createPollers(params)
-	local pollers = PollerCollection:new()
+local createPollers=function(params)
+        local polers = PollerCollection:new()
 
-	for _, item in pairs(params.items) do
-		local cs = createStats(item)
-		local StatsPoller = DataSourcePoller:new(item.pollInterval, cs)
-		pollers:add(clusterStatsPoller)
-	end
-	return pollers
+        for _, item in pairs(params.items) do
+                local cs = createStats(item)
+                local statsPoller = DataSourcePoller:new(item.pollInterval, cs)
+                polers:add(statsPoller)
+        end
+        return polers
 end
 
 
