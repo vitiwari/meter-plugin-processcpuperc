@@ -1,4 +1,5 @@
---Framework imports.
+-- @vitiwari
+-- plugin to track Process Cpu utilization using lua
 local framework = require('framework')
 
 local Plugin = framework.Plugin
@@ -52,31 +53,11 @@ function plugin:onParseValues(data, extra)
     local measurement = function (...)
         ipack(measurements, ...)
     end
-   -- print(json.stringify(parsed))
-    --local results = parsed.results
-    --local timestamp = parsed.timestamp
-
     for K,V  in pairs(data) do
       measurement(V.metric, V.value, V.timestamp, V.source)
     end
 
     return measurements
-  
-	--[[if not isHttpSuccess(extra.status_code) then
-		self:emitEvent('error', ('Http request returned status code %s instead of OK. Please verify configuration.'):format(extra.status_code))
-    		return
-	end
-
-	local success, data = parseJson(data)
-  	if not success then
-		self:emitEvent('error', 'Cannot parse metrics. Please verify configuration.') 
-		return
-	end
-
-	local key, item = unpack(extra.info)
-	local extractor = extractors_map[key]
-	return extractor(data, item)]]--
-
 end
 
 plugin:run()
