@@ -3,7 +3,7 @@
 	[
 		{
 			"source" : "localhost",
-			"processName" : ".*meter",
+			"processArgs" : ".*meter",
       "reconcile":"first",
       "pollInterval":1000
 		}

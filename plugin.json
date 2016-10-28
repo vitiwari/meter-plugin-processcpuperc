@@ -18,7 +18,7 @@
 		},
 		{
 			"title" : "Process Name Regex",
-			"name" : "processName",
+			"name" : "processArgs",
 			"description" : "A regular expression to match the name of the process.",
 			"type" : "string"
 		},
