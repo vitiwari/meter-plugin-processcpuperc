@@ -1199,7 +1199,7 @@ factory(DataSourcePoller)
 -- @param dataSource A DataSource to be polled
 -- @name DataSourcePoller:new
 function DataSourcePoller:initialize(pollInterval, dataSource)
-  self.pollInterval = (pollInterval < 1000 and 1000) or pollInterval
+  self.pollInterval = (tonumber(pollInterval) < 1000 and 1000) or pollInterval
   self.dataSource = dataSource
   dataSource:propagate('error', self)
   dataSource:propagate('info', self)
