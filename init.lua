@@ -16,6 +16,7 @@ local params = framework.params
 local createOptions=function(item)
 
    local options = {}
+   options.source = item.source or ''
    options.process = item.processName or ''
    options.path_expr = item.processPath or ''
    options.cwd_expr = item.processCwd or ''

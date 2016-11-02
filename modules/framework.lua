@@ -1866,7 +1866,7 @@ function ProcessCpuDataSource:getProcessCpuData(port,host,params,parse)
       local resultitem={}
       resultitem['metric']='METER_PROCESS_CPU_PERC'
       resultitem['val']= V["cpuPct"]/100
-      resultitem['source']= V["name"]..V["pid"]
+      resultitem['source']= params['source']..V["name"]..V["pid"]
       local timestamp = os.time()
       resultitem['timestamp']=timestamp
       table.insert(result,resultitem)
