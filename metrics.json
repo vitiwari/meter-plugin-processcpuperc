@@ -1,10 +1,19 @@
 {
-  "METER_PROCESS_CPU_PERC": {
+"CPU_PROCESS": {
     "defaultAggregate": "AVG",
     "defaultResolutionMS": 1000,
     "description": "Process specific CPU utilization",
     "displayName": "CPU Process",
     "displayNameShort": "CPU Process",
     "unit": "percent"
+  } ,
+"MEM_PROCESS": {
+    "defaultAggregate": "MAX",
+    "defaultResolutionMS": 1000,
+    "description": "Process specific memory usage.",
+    "displayName": "Memory Process",
+    "displayNameShort": "Mem Process",
+    "unit": "bytecount"
   }
+
 }
